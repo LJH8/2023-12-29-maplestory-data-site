@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>메이플 스펙 확인</title>
+
+  <link rel="stylesheet" href="/23.12.27_maplestory/common.css">
+  <link rel="stylesheet" href="/23.12.27_maplestory/reset.css">
+  <link rel="stylesheet" href="/23.12.27_maplestory/style.css">
+
+  <!-- 구글폰트 -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+  <header>
+    <h1>메이플스토리 스펙 확인</h1>
+  </header>
+  <main>
+    <div class="inner">
+      <section class="search-area">
+        <form onsubmit="return false">
+          <label class="search-item">
+            <input type="text" placeholder="아이디를 입력해주세요." id="mapleID">
+          </label>
+        </form>
+        <button type="button" id="sendIDbtn">
+          <span class="material-symbols-outlined">search</span>
+        </button>
+      </section>
+      <section class="data hidden">
+        <div class="data-bg">
+          <span class="data-date">조회 기준일</span>
+          <span class="data-notice">캐릭터 스탯 및 장비 정보는 2023.12.21 이후 접속한 계정의 캐릭터만 확인이 가능합니다.</span>
+          <div class="data-basic">
+            <p class="data-img"><img src="#" alt="캐릭터 이미지"></p>
+            <ul class="data-basic-list basic">
+              <!-- <li class="data-ID"></li>
+              <li class="data-level"></li>
+              <li class="data-guild"></li>
+              <li class="data-class"></li>
+              <li class="data-sever"></li> -->
+            </ul>
+            <ul class="data-basic-list etc">
+              <li class="data-popularity"></li>
+            </ul>
+          </div>
+          <p class="class-img"><img src="#" alt="클래스 이미지"></p>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer></footer>
+
+  <script src="/23.12.27_maplestory/index.js"></script>
+</body>
+
+
+</html>
