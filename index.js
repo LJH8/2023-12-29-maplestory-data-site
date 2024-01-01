@@ -64,7 +64,7 @@ function basicData(ocid) {
     const dataIMG = document.querySelector(".data-img > img");
     const classIMG = document.querySelector(".class-img > img")
     dataIMG.src = `${data.character_image}`;
-    classIMG.src = `/img/${data.character_class}.png`
+    classIMG.src = `/2023-12-29-maplestory-data-site/img/${data.character_class}.png`
       basicList.innerHTML = `
         <li class="data-ID">${data.character_name}</li>
         <li class="data-level">LV${data.character_level}</li>
@@ -249,25 +249,25 @@ function preset1(hiperData,remainPoint) {
 
   hiperRemainPoint.textContent = `남은 포인트 : ${remainPoint}`
   hiperStat1.innerHTML = `
-    <li>STR : ${hiperData[0].stat_level}</li>
-    <li>DEX : ${hiperData[1].stat_level}</li>
-    <li>INT : ${hiperData[2].stat_level}</li>
-    <li>LUK : ${hiperData[3].stat_level}</li>
-    <li>HP : ${hiperData[4].stat_level}</li>
-    <li>MP : ${hiperData[5].stat_level}</li>
-    <li>DE/TH/PP : ${hiperData[6].stat_level}</li>
-    <li>크리티컬 확률 : ${hiperData[7].stat_level}</li>
+    <li>STR : Lv. ${hiperData[0].stat_level}</li>
+    <li>DEX : Lv. ${hiperData[1].stat_level}</li>
+    <li>INT : Lv. ${hiperData[2].stat_level}</li>
+    <li>LUK : Lv. ${hiperData[3].stat_level}</li>
+    <li>HP : Lv. ${hiperData[4].stat_level}</li>
+    <li>MP : Lv. ${hiperData[5].stat_level}</li>
+    <li>DE/TH/PP : Lv. ${hiperData[6].stat_level}</li>
+    <li>크리티컬 확률 : Lv. ${hiperData[7].stat_level}</li>
   `
   hiperStat2.innerHTML = `
-  <li>크리티컬 데미지 : ${hiperData[8].stat_level}</li>
-  <li>방어율 무시 : ${hiperData[9].stat_level}</li>
-  <li>데미지 : ${hiperData[10].stat_level}</li>
-  <li>보스몬스터 데미지 증가 : ${hiperData[11].stat_level}</li>
-  <li>상태 이상 내성 : ${hiperData[12].stat_level}</li>
-  <li>공격력/마력 : ${hiperData[13].stat_level}</li>
-  <li>획득 경험치 : ${hiperData[14].stat_level}</li>
-  <li>아케인포스 : ${hiperData[15].stat_level}</li>
-  <li>일반몬스터 데미지 증가 : ${hiperData[16].stat_level}</li>
+  <li>크리티컬 데미지 : Lv. ${hiperData[8].stat_level}</li>
+  <li>방어율 무시 : Lv. ${hiperData[9].stat_level}</li>
+  <li>데미지 : Lv. ${hiperData[10].stat_level}</li>
+  <li>보스몬스터 데미지 증가 : Lv. ${hiperData[11].stat_level}</li>
+  <li>상태 이상 내성 : Lv. ${hiperData[12].stat_level}</li>
+  <li>공격력/마력 : Lv. ${hiperData[13].stat_level}</li>
+  <li>획득 경험치 : Lv. ${hiperData[14].stat_level}</li>
+  <li>아케인포스 : Lv. ${hiperData[15].stat_level}</li>
+  <li>일반몬스터 데미지 증가 : Lv. ${hiperData[16].stat_level}</li>
 `
 }
 

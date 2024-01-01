@@ -1,5 +1,5 @@
 body {
-  background-image: url(/img/bg-img.png);
+  background-image: url(/2023-12-29-maplestory-data-site/img/bg-img.png);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -171,7 +171,7 @@ h1 {
 /* 하이퍼 능력치 - S */
 .stat .char-stat .hiper-stat-tab {
   position: relative;
-  width: 30%;
+  width: 35%;
   padding: 20px;
   border: 1px solid #ddfe01;
 }
