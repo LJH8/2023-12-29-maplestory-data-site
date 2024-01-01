@@ -64,7 +64,7 @@ function basicData(ocid) {
     const dataIMG = document.querySelector(".data-img > img");
     const classIMG = document.querySelector(".class-img > img")
     dataIMG.src = `${data.character_image}`;
-    classIMG.src = `/2023-12-29-maplestory-data-site/img/${data.character_class}.png`
+    classIMG.src = `/img/${data.character_class}.png`
       basicList.innerHTML = `
         <li class="data-ID">${data.character_name}</li>
         <li class="data-level">LV${data.character_level}</li>
