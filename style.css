@@ -8,18 +8,22 @@ header {
   width: 100%;
   height: 200px;
   text-align: center;
-  line-height: 200px;
+  padding: 50px 0;
+  /* line-height: 200px; */
 }
 h1 {
   font-size: 2.8rem;
   font-family: 'SejonghospitalBold';
+  margin-bottom: 30px;
+}
+.data-notice {
+  display: block;
+  font-weight: 600;
+  color: #f00;
 }
 /* 헤더 - E */
 /* 메인 - S */
 /* 검색 - S */
-.inner {
-  text-align: center;
-}
 .search-area {
   display: flex;
   width: 40%;
@@ -48,12 +52,11 @@ h1 {
 /* 기본정보 조회 - S */
 .data {
   width: 100%;
-  padding: 100px 0;
+  padding: 80px 0;
 }
 .data .data-bg {
   position: relative;
   width: 100%;
-  height: 800px;
   padding: 5%;
   margin: 0 auto;
   border-radius: 30px;
@@ -63,11 +66,6 @@ h1 {
   position: absolute;
   bottom: 30px;
   left: 30px;
-}
-.data-notice {
-  display: block;
-  margin-bottom: 20px;
-  color: #ff1;
 }
 .data-basic {
   display: flex;
@@ -111,13 +109,115 @@ h1 {
 }
 .class-img {
   position: absolute;
-  top: 12%;
+  top: 5%;
   right: 13%;
 }
 .class-img img {
   width: 400px;
   opacity: 0.8;
 }
-
 /* 기본정보 조회 - E */
+/* 탭메뉴 구성 - S */
+/* 기본 능력치 - S */
+.data-tabmenu {
+  margin-top: 100px;
+}
+.tab-btn {
+  color: #333;
+  font-size: 1rem;
+  padding: 10px 20px;
+  margin-bottom: 16px;
+  border-radius: 20px;
+  background-color: #f2f2f2;
+  cursor: pointer;
+}
+.tab-btn:nth-child(2) {
+  margin: 0 10px;
+}
+.tab-btn:hover {
+  opacity: 0.8;
+}
+.tab-content {
+  padding: 30px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.7);
+  border-radius: 15px;
+}
+.tab-content > h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #ff0;
+}
+.stat .stat-power {
+  display: block;
+  font-size: 2rem;
+  color: #f99;
+  margin: 30px 0;
+}
+.tab-content .char-stat {
+  display: flex;
+}
+.tab-content .char-stat .char-stat-page1 {
+  border-right: 2px solid rgba(0, 0, 0, 0.3);
+  margin-right: 50px;
+}
+.tab-content .char-stat ul {
+  width: 30%;
+}
+.tab-content .char-stat ul li {
+  padding: 10px 0;
+  color: #f2f2f2;
+}
+/* 기본 능력치 - E */
+/* 하이퍼 능력치 - S */
+.stat .char-stat .hiper-stat-tab {
+  position: relative;
+  width: 30%;
+  padding: 20px;
+  border: 1px solid #ddfe01;
+}
+.stat .char-stat .hiper-stat-tab .hiper-stat-tab-menu {
+  position: absolute;
+  right: 0;bottom: -17px;
+}
+.stat .char-stat .hiper-stat-tab .hiper-tab-button {
+  width: 60px;
+  color: #fff;
+  border: 1px solid #ddfe01;
+  cursor: pointer;
+}
+.stat .char-stat .hiper-stat-tab .hiper-tab-button:hover {
+  color: rgba(0, 0, 0, 0.7);
+}
+.stat .char-stat .hiper-stat-tab .hiper-tab-content {}
+.stat .char-stat .hiper-stat-tab .hiper-tab-content > h2 {
+  color: #ddfe01;
+  margin-bottom: 20px;
+}
+.hiper-tab-content .hiper-stat-preset1 {
+  display: flex;
+  width: 100%;
+}
+.hiper-tab-content .hiper-stat-preset1 .hiper-stat-preset1-page1 {
+  width: 50%;
+}
+.hiper-tab-content .hiper-stat-preset1 .hiper-stat-preset1-page1 > li {
+  font-size: 0.8rem;
+}
+.hiper-tab-content .hiper-stat-preset1 .hiper-stat-preset1-page2 {
+  width: 50%;
+}
+.hiper-tab-content .hiper-stat-preset1 .hiper-stat-preset1-page2 > li {
+  font-size: 0.8rem;
+}
+.hiper-tab-content > em {
+  display: block;
+  font-size: 0.8rem;
+  color: #DB0;
+  margin-top: 20px;
+}
+
+
+/* 하이퍼 능력치 - E */
+/* 탭메뉴 구성 - E */
+
 /* 메인 - E */

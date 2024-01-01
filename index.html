@@ -8,7 +8,7 @@
 
   <link rel="stylesheet" href="/2023-12-29-maplestory-data-site/common.css">
   <link rel="stylesheet" href="/2023-12-29-maplestory-data-site/reset.css">
-  <link rel="stylesheet" href="/2023-12-29-maplestory-data-site/style.css">
+  <link rel="stylesheet" href="/2023-12-29-MAPLESTORY-DATA-SITE/style.css">
 
   <!-- 구글폰트 -->
   <link rel="stylesheet"
@@ -18,23 +18,23 @@
 <body>
   <header>
     <h1>메이플스토리 스펙 확인</h1>
+    <span class="data-notice">* 캐릭터 스탯 및 장비 정보는 2023.12.21 이후 접속한 계정의 캐릭터만 확인이 가능합니다.</span>
   </header>
   <main>
     <div class="inner">
       <section class="search-area">
         <form onsubmit="return false">
           <label class="search-item">
-            <input type="text" placeholder="아이디를 입력해주세요." id="mapleID">
+            <input type="text" placeholder="아이디를 입력해주세요.(대소문자 구분 필요)" id="mapleID">
           </label>
         </form>
         <button type="button" id="sendIDbtn">
           <span class="material-symbols-outlined">search</span>
         </button>
       </section>
-      <section class="data hidden">
+      <section class="data">
         <div class="data-bg">
           <span class="data-date">조회 기준일</span>
-          <span class="data-notice">캐릭터 스탯 및 장비 정보는 2023.12.21 이후 접속한 계정의 캐릭터만 확인이 가능합니다.</span>
           <div class="data-basic">
             <p class="data-img"><img src="#" alt="캐릭터 이미지"></p>
             <ul class="data-basic-list basic">
@@ -49,6 +49,104 @@
             </ul>
           </div>
           <p class="class-img"><img src="#" alt="클래스 이미지"></p>
+          <div class="data-tabmenu">
+            <button class="tab-btn" id="tab1">종합 능력치</button>
+            <button class="tab-btn" id="tab2">장비</button>
+            <button class="tab-btn" id="tab3">캐시 장비</button>   
+            <div id="tab1" class="tab-content stat">
+              <h2>종합 능력치 및 어빌리티</h2>
+              <strong class="stat-power">전투력</strong>
+              <div class="char-stat">
+                <ul class="char-stat-page1">
+                  <!-- <li>최소 스탯공격력 : 10</li>
+                  <li>최대 스탯공격력 : 10</li>
+                  <li>데미지 : 10</li>
+                  <li>보스 몬스터 데미지 : 10</li>
+                  <li>일반 몬스터 데미지</li>
+                  <li>최종 데미지</li>
+                  <li>방어율 무시</li>
+                  <li>크리티컬 확률</li>
+                  <li>크리티컬 데미지</li>
+                  <li>공격력</li>
+                  <li>마력</li>
+                  <li>상태이상 내성</li>
+                  <li>소환수 지속시간 증가</li>
+                  <li>버프 지속시간</li>
+                  <li>스타포스</li>
+                  <li>아케인포스</li>
+                  <li>어센틱포스</li> -->
+                </ul>
+                <ul class="char-stat-page2">
+                  <!-- <li>STR</li>
+                  <li>DEX</li>
+                  <li>INT</li>
+                  <li>LUK</li>
+                  <li>HP</li>
+                  <li>MP</li>
+                  <li>재사용 대기시간 감소 (%)</li>
+                  <li>공격 속도</li>
+                  <li>스탠스</li>
+                  <li>방어력</li>
+                  <li>이동속도</li>
+                  <li>점프력</li>
+                  <li>속성 내성 무시</li>
+                  <li>상태이상 추가 데미지</li>
+                  <li>메소 획득량</li>
+                  <li>아이템 드롭률</li>
+                  <li>추가 경험치 획득</li> -->
+                </ul>
+                <div class="hiper-stat-tab">
+                  <div class="hiper-stat-tab-menu">
+                    <button class="hiper-tab-button" id="hiper-tab1">Preset1</button>
+                    <button class="hiper-tab-button" id="hiper-tab2">Preset2</button>
+                    <button class="hiper-tab-button" id="hiper-tab3">Preset3</button>
+                  </div>
+                  <div id="hiper-tab1" class="hiper-tab-content">
+                    <h2>하이퍼 스탯(프리셋1)</h2>
+                    <div class="hiper-stat-preset1">
+                      <ul class="hiper-stat-preset1-page1">
+                        <!-- <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li> -->
+                      </ul>
+                      <ul class="hiper-stat-preset1-page2">
+                        <!-- <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li> -->
+                      </ul>
+                    </div>
+                    <em class="hiper-remain-point">남은 포인트</em>
+                  </div>
+                  <div id="hiper-tab2" class="hiper-tab-content hidden">
+                    <h2>하이퍼 스탯(프리셋2)</h2>
+                    <p>여기에 탭 2의 내용을 작성하세요.</p>
+                  </div>
+                  <div id="hiper-tab3" class="hiper-tab-content hidden" >
+                    <h2>하이퍼 스탯(프리셋3)</h2>
+                    <p>여기에 탭 3의 내용을 작성하세요.</p>
+                  </div>
+                </div>
+              </div>
+            </div> 
+            <div id="tab2" class="tab-content item-equipment hidden">
+              <h2>장비</h2>
+              <p>두 번째 탭의 내용입니다.</p>
+            </div>     
+            <div id="tab3" class="tab-content cash-equipment hidden">
+              <h2>캐시 장비</h2>
+              <p>세 번째 탭의 내용입니다.</p>
+            </div>            
+          </div>
         </div>
       </section>
     </div>
