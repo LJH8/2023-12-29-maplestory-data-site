@@ -1,15 +1,25 @@
+/* common - S */
 body {
   background-image: url(/2023-12-29-maplestory-data-site/img/bg-img.png);
   background-repeat: no-repeat;
   background-size: cover;
 }
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 1,
+    'wght' 700,
+    'GRAD' 200,
+    'opsz' 24
+}
+/* common - E */
+
+
 /* 헤더 - S */
 header {
   width: 100%;
   height: 200px;
   text-align: center;
   padding: 50px 0;
-  /* line-height: 200px; */
 }
 h1 {
   font-size: 2.8rem;
@@ -55,6 +65,7 @@ h1 {
   padding: 80px 0;
 }
 .data .data-bg {
+  display: none;
   position: relative;
   width: 100%;
   padding: 5%;
@@ -160,8 +171,8 @@ h1 {
   border-right: 2px solid rgba(0, 0, 0, 0.3);
   margin-right: 50px;
 }
-.tab-content .char-stat ul {
-  width: 30%;
+.tab-content .char-stat > ul {
+  width: calc(100% / 3);
 }
 .tab-content .char-stat ul li {
   padding: 10px 0;
@@ -169,18 +180,25 @@ h1 {
 }
 /* 기본 능력치 - E */
 /* 하이퍼 능력치 - S */
+.hiperstatAbility {
+  width: calc(100% / 3);
+}
 .stat .char-stat .hiper-stat-tab {
   position: relative;
-  width: 35%;
+  width: 100%;
   padding: 20px;
+  margin-bottom: 50px;
   border: 1px solid #ddfe01;
+  border-radius: 10px;
 }
 .stat .char-stat .hiper-stat-tab .hiper-stat-tab-menu {
   position: absolute;
-  right: 0;bottom: -17px;
+  right: 10px;
+  bottom: -30px;
 }
 .stat .char-stat .hiper-stat-tab .hiper-tab-button {
   width: 60px;
+  height: 30px;
   color: #fff;
   border: 1px solid #ddfe01;
   cursor: pointer;
@@ -193,20 +211,20 @@ h1 {
   color: #ddfe01;
   margin-bottom: 20px;
 }
-.hiper-tab-content .hiper-stat-preset1 {
+.hiper-tab-content .hiper-stat-preset {
   display: flex;
   width: 100%;
 }
-.hiper-tab-content .hiper-stat-preset1 .hiper-stat-preset1-page1 {
-  width: 50%;
+.hiper-tab-content .hiper-stat-preset .hiper-stat-preset-page1 {
+  width: 45%;
 }
-.hiper-tab-content .hiper-stat-preset1 .hiper-stat-preset1-page1 > li {
+.hiper-tab-content .hiper-stat-preset .hiper-stat-preset-page1 > li {
   font-size: 0.8rem;
 }
-.hiper-tab-content .hiper-stat-preset1 .hiper-stat-preset1-page2 {
-  width: 50%;
+.hiper-tab-content .hiper-stat-preset .hiper-stat-preset-page2 {
+  width: 55%;
 }
-.hiper-tab-content .hiper-stat-preset1 .hiper-stat-preset1-page2 > li {
+.hiper-tab-content .hiper-stat-preset .hiper-stat-preset-page2 > li {
   font-size: 0.8rem;
 }
 .hiper-tab-content > em {
@@ -215,9 +233,136 @@ h1 {
   color: #DB0;
   margin-top: 20px;
 }
-
-
 /* 하이퍼 능력치 - E */
+/* 어빌리티 능력치 - S */
+.ability {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #ddfe01;
+  border-radius: 10px;
+}
+.ability h2 {
+  color: #ddfe01;
+  margin-bottom: 10px;
+}
+.ability ul {}
+.ability ul li {
+  font-size: 0.89rem;
+}
+.ability ul li strong {
+  color: #DB0;
+}
+/* 어빌리티 능력치 - E */
+/* 장비 - S */
+/* 장비 정보 - S*/
+.item-equipment {}
+.item-equipment h2 {}
+.item-equipment .item-equipment-wrap {
+  display: flex;
+}
+.item-equipment .item-equipment-wrap .item-equipment-table {
+  width: 40%;
+  margin-right: 100px;
+}
+.item-equipment .item-equipment-wrap .item-equipment-table tr {}
+.item-equipment .item-equipment-wrap .item-equipment-table tr td {
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  vertical-align: middle;
+}
+.item-equipment .item-equipment-wrap .item-equipment-table tr td img {
+  width: 44px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.item-equipment .item-equipment-wrap .item-equipment-table tr td img:hover {
+  transform: scale(1.2);
+}
+/* 장비 정보 - E*/
+/* 장비 스탯 - S*/
+.item-equipment .item-equipment-wrap .item-equipment-stat {
+  width: 60%;
+}
+.item-equipment .item-equipment-wrap .item-equipment-stat p {
+  color: #f2f2f2;
+  font-size: 1.5rem;
+}
+.item-equipment-stat .item-equipment-stat-base {
+  display: none;
+  position: relative;
+  width: 100%;
+  height: 380px;
+  padding: 10px;
+  margin-bottom: 50px;
+  border: 1px solid #f2f2f2;
+  border-radius: 10px;
+  opacity: 0.8;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+.item-equipment-stat .item-equipment-stat-base .eq-name {
+  width: 100%;
+  font-size: 1.4rem;
+}
+.item-equipment-stat .item-equipment-stat-base-depth2 {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 280px;
+}
+.item-equipment-stat .item-equipment-stat-base .eq-starforce {
+  display: flex;
+  align-items: center;
+}
+.item-equipment-stat .item-equipment-stat-base .eq-starforce span {
+  font-size: 18px;
+  margin-left: 5px;
+  color: #ff0;
+}
+.item-equipment-stat .item-equipment-stat-base li {
+  padding: 8px 0;
+  color: #fff;
+}
+.item-equipment-stat .item-equipment-stat-base li .eq-value {
+  color: #80cbfa;
+}
+.item-equipment-stat .item-equipment-stat-base li em {}
+.item-equipment-stat .item-equipment-stat-base li strong {
+  color: #14f55f;
+}
+.item-equipment-stat .item-equipment-stat-base li .eq-etcValue {
+  color: #8985fa;
+}
+.item-equipment-stat .item-equipment-stat-base li .eq-starforceStat {
+  color: #ebab0a;
+}
+.item-equipment-stat .item-equipment-stat-base .open-potential {
+  position: absolute;
+  left: 0;
+  top: 100% - 100px;
+  width: 100%;
+  height: 50px;
+}
+.open-potential p {
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  background-color: #80cbfa;
+  cursor: pointer;
+}
+.open-potential .potential-wrap {
+  padding: 10px;
+}
+.open-potential ul {
+  display: flex;
+}
+.open-potential ul li {}
+
+
+
+/* 장비 스탯 - E*/
+/* 장비 - E */
 /* 탭메뉴 구성 - E */
 
 /* 메인 - E */

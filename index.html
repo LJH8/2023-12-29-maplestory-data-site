@@ -52,7 +52,7 @@
           <div class="data-tabmenu">
             <button class="tab-btn" id="tab1">종합 능력치</button>
             <button class="tab-btn" id="tab2">장비</button>
-            <button class="tab-btn" id="tab3">캐시 장비</button>   
+            <button class="tab-btn" id="tab3">캐시 장비</button>
             <div id="tab1" class="tab-content stat">
               <h2>종합 능력치 및 어빌리티</h2>
               <strong class="stat-power">전투력</strong>
@@ -95,57 +95,165 @@
                   <li>아이템 드롭률</li>
                   <li>추가 경험치 획득</li> -->
                 </ul>
-                <div class="hiper-stat-tab">
-                  <div class="hiper-stat-tab-menu">
-                    <button class="hiper-tab-button" id="hiper-tab1">Preset1</button>
-                    <button class="hiper-tab-button" id="hiper-tab2">Preset2</button>
-                    <button class="hiper-tab-button" id="hiper-tab3">Preset3</button>
-                  </div>
-                  <div id="hiper-tab1" class="hiper-tab-content">
-                    <h2>하이퍼 스탯(프리셋1)</h2>
-                    <div class="hiper-stat-preset1">
-                      <ul class="hiper-stat-preset1-page1">
-                        <!-- <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li> -->
-                      </ul>
-                      <ul class="hiper-stat-preset1-page2">
-                        <!-- <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li> -->
-                      </ul>
+                <div class="hiperstatAbility">
+                  <div class="hiper-stat-tab">
+                    <div class="hiper-stat-tab-menu">
+                      <button type="button" class="hiper-tab-button" id="hiper_tab1">Preset1</button>
+                      <button type="button" class="hiper-tab-button" id="hiper_tab2">Preset2</button>
+                      <button type="button" class="hiper-tab-button" id="hiper_tab3">Preset3</button>
                     </div>
-                    <em class="hiper-remain-point">남은 포인트</em>
+                    <div id="hiper_tab1" class="hiper-tab-content">
+                      <h2>하이퍼 스탯(프리셋1)</h2>
+                      <div class="hiper-stat-preset1 hiper-stat-preset">
+                        <ul class="hiper-stat-preset1-page1 hiper-stat-preset-page1">
+                          <!-- <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li> -->
+                        </ul>
+                        <ul class="hiper-stat-preset1-page2 hiper-stat-preset-page2">
+                          <!-- <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li> -->
+                        </ul>
+                      </div>
+                      <em class="hiper-preset1-remain-point">남은 포인트</em>
+                    </div>
+                    <div id="hiper_tab2" class="hiper-tab-content hidden">
+                      <h2>하이퍼 스탯(프리셋2)</h2>
+                      <div class="hiper-stat-preset2 hiper-stat-preset">
+                        <ul class="hiper-stat-preset2-page1 hiper-stat-preset-page1">
+                          <!-- <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li> -->
+                        </ul>
+                        <ul class="hiper-stat-preset2-page2 hiper-stat-preset-page2">
+                          <!-- <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li> -->
+                        </ul>
+                      </div>
+                      <em class="hiper-preset2-remain-point">남은 포인트</em>
+                    </div>
+                    <div id="hiper_tab3" class="hiper-tab-content hidden">
+                      <h2>하이퍼 스탯(프리셋3)</h2>
+                      <div class="hiper-stat-preset3 hiper-stat-preset">
+                        <ul class="hiper-stat-preset3-page1 hiper-stat-preset-page1">
+                          <!-- <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li> -->
+                        </ul>
+                        <ul class="hiper-stat-preset3-page2 hiper-stat-preset-page2">
+                          <!-- <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li> -->
+                        </ul>
+                      </div>
+                      <em class="hiper-preset3-remain-point">남은 포인트</em>
+                    </div>
                   </div>
-                  <div id="hiper-tab2" class="hiper-tab-content hidden">
-                    <h2>하이퍼 스탯(프리셋2)</h2>
-                    <p>여기에 탭 2의 내용을 작성하세요.</p>
-                  </div>
-                  <div id="hiper-tab3" class="hiper-tab-content hidden" >
-                    <h2>하이퍼 스탯(프리셋3)</h2>
-                    <p>여기에 탭 3의 내용을 작성하세요.</p>
+                  <div class="ability">
+                    <h2>어빌리티</h2>
+                    <ul class="ability-list">
+                      <!-- <li></li>
+                      <li></li>
+                      <li></li> -->
+                    </ul>
                   </div>
                 </div>
               </div>
-            </div> 
+            </div>
             <div id="tab2" class="tab-content item-equipment hidden">
               <h2>장비</h2>
-              <p>두 번째 탭의 내용입니다.</p>
-            </div>     
+              <div class="item-equipment-wrap">
+                <table class="item-equipment-table">
+                  <!-- <tr>
+                    <td><img src="" alt="반지1"></td>
+                    <td class="bg-black"></td>
+                    <td><img src="" alt="모자"></td>
+                    <td class="bg-black"></td>
+                    <td><img src="" alt="엠블렘"></td>
+                  </tr>
+                  <tr>
+                    <td><img src="" alt="반지2"></td>
+                    <td><img src="" alt="목걸이1"></td>
+                    <td><img src="" alt="얼굴장식"></td>
+                    <td class="bg-black"></td>
+                    <td><img src="" alt="뱃지"></td>
+                  </tr>
+                  <tr>
+                    <td><img src="" alt="반지3"></td>
+                    <td><img src="" alt="목걸이2"></td>
+                    <td><img src="" alt="눈 장식"></td>
+                    <td><img src="" alt="귀걸이"></td>
+                    <td><img src="" alt="칭호"></td>
+                  </tr>
+                  <tr>
+                    <td><img src="" alt="반지4"></td>
+                    <td><img src="" alt="무기"></td>
+                    <td><img src="" alt="상의"></td>
+                    <td><img src="" alt="어깨장식"></td>
+                    <td><img src="" alt="보조무기"></td>
+                  </tr>
+                  <tr>
+                    <td><img src="" alt="포켓장비"></td>
+                    <td><img src="" alt="벨트"></td>
+                    <td><img src="" alt="바지"></td>
+                    <td><img src="" alt="장갑"></td>
+                    <td><img src="" alt="망토"></td>
+                  </tr>
+                  <tr>
+                    <td><img src="" alt="신발"></td>
+                    <td><img src="" alt="안드로이드 외형"></td>
+                    <td><img src="" alt="안드로이드 하트"></td>
+                    <td class="bg-black"></td>
+                    <td class="bg-black"></td>
+                  </tr> -->
+                </table>
+                <div class="item-equipment-stat">
+                  <p class="item-equipment-stat-check">능력치 확인을 원하는 장비 아이템을 클릭해주세요.</p>
+                  <ul class="item-equipment-stat-base">
+                    <!-- <li></li>
+                    <ul>
+                      <li></li>
+                    </ul> -->
+                  </ul>
+                </div>
+              </div>
+            </div>
             <div id="tab3" class="tab-content cash-equipment hidden">
               <h2>캐시 장비</h2>
               <p>세 번째 탭의 내용입니다.</p>
-            </div>            
+            </div>
           </div>
         </div>
       </section>

@@ -18,3 +18,6 @@
 .active {
     display: block;
 }
+.bg-black {
+    background-color: #000;
+}
