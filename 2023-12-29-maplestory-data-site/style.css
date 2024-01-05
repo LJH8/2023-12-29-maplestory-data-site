@@ -1,0 +1,336 @@
+/* common - S */
+body {
+  background-image: url(/2023-12-29-maplestory-data-site/img/bg-img.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 1,
+    'wght' 700,
+    'GRAD' 200,
+    'opsz' 24
+}
+/* common - E */
+
+
+/* 헤더 - S */
+header {
+  width: 100%;
+  height: 200px;
+  text-align: center;
+  padding: 50px 0;
+  /* line-height: 200px; */
+}
+h1 {
+  font-size: 2.8rem;
+  font-family: 'SejonghospitalBold';
+  margin-bottom: 30px;
+}
+.data-notice {
+  display: block;
+  font-weight: 600;
+  color: #f00;
+}
+/* 헤더 - E */
+/* 메인 - S */
+/* 검색 - S */
+.search-area {
+  display: flex;
+  width: 40%;
+  margin: 0 auto;
+}
+.search-area form {
+  width: 100%;
+}
+.search-area .search-item input {
+  width: 100%;
+  height: 50px;
+  font-size: 1rem;
+  padding: 2%;
+  border-radius: 15px;
+  vertical-align: middle;
+}
+.search-area button {
+  height: 50px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.search-area button span {
+  font-size: 2rem;
+}
+/* 검색 - E */
+/* 기본정보 조회 - S */
+.data {
+  width: 100%;
+  padding: 80px 0;
+}
+.data .data-bg {
+  position: relative;
+  width: 100%;
+  padding: 5%;
+  margin: 0 auto;
+  border-radius: 30px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.data-date {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+}
+.data-basic {
+  display: flex;
+  color: #fff;
+}
+.data-basic .data-img {
+  text-align: start;
+  margin-right: 30px;
+}
+.data-basic .data-img img {
+  width: 150px;
+}
+.data-basic .data-basic-list {
+  position: relative;
+  text-align: start;
+  padding: 20px;
+}
+.data-basic .basic::after {
+  content: "";
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 1px;
+  height: 150px;
+  background-color: #fff;
+  opacity: 0.3;
+}
+.data-basic .data-basic-list > li {
+  display: block;
+  padding: 10px;
+}
+.data-basic .data-basic-list .data-ID {
+  font-size: 1.7rem;
+  margin: 0;
+}
+.data-basic .data-basic-list .data-level {
+  font-size: 0.8rem;
+}
+.data-basic .data-basic-list .data-popularity {
+  margin: 0;
+}
+.class-img {
+  position: absolute;
+  top: 5%;
+  right: 13%;
+}
+.class-img img {
+  width: 400px;
+  opacity: 0.8;
+}
+/* 기본정보 조회 - E */
+/* 탭메뉴 구성 - S */
+/* 기본 능력치 - S */
+.data-tabmenu {
+  margin-top: 100px;
+}
+.tab-btn {
+  color: #333;
+  font-size: 1rem;
+  padding: 10px 20px;
+  margin-bottom: 16px;
+  border-radius: 20px;
+  background-color: #f2f2f2;
+  cursor: pointer;
+}
+.tab-btn:nth-child(2) {
+  margin: 0 10px;
+}
+.tab-btn:hover {
+  opacity: 0.8;
+}
+.tab-content {
+  padding: 30px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.7);
+  border-radius: 15px;
+}
+.tab-content > h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #ff0;
+}
+.stat .stat-power {
+  display: block;
+  font-size: 2rem;
+  color: #f99;
+  margin: 30px 0;
+}
+.tab-content .char-stat {
+  display: flex;
+}
+.tab-content .char-stat .char-stat-page1 {
+  border-right: 2px solid rgba(0, 0, 0, 0.3);
+  margin-right: 50px;
+}
+.tab-content .char-stat > ul {
+  width: calc(100% / 3);
+}
+.tab-content .char-stat ul li {
+  padding: 10px 0;
+  color: #f2f2f2;
+}
+/* 기본 능력치 - E */
+/* 하이퍼 능력치 - S */
+.hiperstatAbility {
+  width: calc(100% / 3);
+}
+.stat .char-stat .hiper-stat-tab {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 50px;
+  border: 1px solid #ddfe01;
+  border-radius: 10px;
+}
+.stat .char-stat .hiper-stat-tab .hiper-stat-tab-menu {
+  position: absolute;
+  right: 10px;
+  bottom: -30px;
+}
+.stat .char-stat .hiper-stat-tab .hiper-tab-button {
+  width: 60px;
+  height: 30px;
+  color: #fff;
+  border: 1px solid #ddfe01;
+  cursor: pointer;
+}
+.stat .char-stat .hiper-stat-tab .hiper-tab-button:hover {
+  color: rgba(0, 0, 0, 0.7);
+}
+.stat .char-stat .hiper-stat-tab .hiper-tab-content {}
+.stat .char-stat .hiper-stat-tab .hiper-tab-content > h2 {
+  color: #ddfe01;
+  margin-bottom: 20px;
+}
+.hiper-tab-content .hiper-stat-preset {
+  display: flex;
+  width: 100%;
+}
+.hiper-tab-content .hiper-stat-preset .hiper-stat-preset-page1 {
+  width: 45%;
+}
+.hiper-tab-content .hiper-stat-preset .hiper-stat-preset-page1 > li {
+  font-size: 0.8rem;
+}
+.hiper-tab-content .hiper-stat-preset .hiper-stat-preset-page2 {
+  width: 55%;
+}
+.hiper-tab-content .hiper-stat-preset .hiper-stat-preset-page2 > li {
+  font-size: 0.8rem;
+}
+.hiper-tab-content > em {
+  display: block;
+  font-size: 0.8rem;
+  color: #DB0;
+  margin-top: 20px;
+}
+/* 하이퍼 능력치 - E */
+/* 어빌리티 능력치 - S */
+.ability {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #ddfe01;
+  border-radius: 10px;
+}
+.ability h2 {
+  color: #ddfe01;
+  margin-bottom: 10px;
+}
+.ability ul {}
+.ability ul li {
+  font-size: 0.89rem;
+}
+.ability ul li strong {
+  color: #DB0;
+}
+/* 어빌리티 능력치 - E */
+/* 장비 - S */
+/* 장비 정보 - S*/
+.item-equipment {}
+.item-equipment h2 {}
+.item-equipment .item-equipment-wrap {
+  display: flex;
+}
+.item-equipment .item-equipment-wrap .item-equipment-table {
+  width: 40%;
+  margin-right: 100px;
+}
+.item-equipment .item-equipment-wrap .item-equipment-table tr {}
+.item-equipment .item-equipment-wrap .item-equipment-table tr td {
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  vertical-align: middle;
+}
+.item-equipment .item-equipment-wrap .item-equipment-table tr td img {
+  width: 44px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.item-equipment .item-equipment-wrap .item-equipment-table tr td img:hover {
+  transform: scale(1.2);
+}
+/* 장비 정보 - E*/
+/* 장비 스탯 - S*/
+.item-equipment .item-equipment-wrap .item-equipment-stat {
+  width: 60%;
+}
+.item-equipment .item-equipment-wrap .item-equipment-stat p {
+  color: #f2f2f2;
+  font-size: 1.5rem;
+}
+.item-equipment-stat .item-equipment-stat-base {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 280px;
+  padding: 10px;
+  border-radius: 30px;
+  opacity: 0.8;
+}
+.item-equipment-stat .item-equipment-stat-base .eq-name {
+  font-size: 1.4rem;
+}
+.item-equipment-stat .item-equipment-stat-base .eq-starforce {
+  display: flex;
+  align-items: center;
+}
+.item-equipment-stat .item-equipment-stat-base .eq-starforce span {
+  font-size: 18px;
+  margin-left: 5px;
+  color: #ff0;
+}
+.item-equipment-stat .item-equipment-stat-base li {
+  padding: 8px 0;
+  color: #fff;
+}
+.item-equipment-stat .item-equipment-stat-base li .eq-value {
+  color: #80cbfa;
+}
+.item-equipment-stat .item-equipment-stat-base li em {}
+.item-equipment-stat .item-equipment-stat-base li strong {
+  color: #14f55f;
+}
+.item-equipment-stat .item-equipment-stat-base li .eq-etcValue {
+  color: #8985fa;
+}
+.item-equipment-stat .item-equipment-stat-base li .eq-starforceStat {
+  color: #ebab0a;
+}
+.item-equipment-stat .item-equipment-stat-potential {}
+
+/* 장비 스탯 - E*/
+/* 장비 - E */
+/* 탭메뉴 구성 - E */
+
+/* 메인 - E */

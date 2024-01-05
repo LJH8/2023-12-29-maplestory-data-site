@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>메이플 스펙 확인</title>
+
+  <link rel="stylesheet" href="/2023-12-29-maplestory-data-site/common.css">
+  <link rel="stylesheet" href="/2023-12-29-maplestory-data-site/reset.css">
+  <link rel="stylesheet" href="/2023-12-29-maplestory-data-site/style.css">
+
+  <!-- 구글폰트 -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+  <header>
+    <h1>메이플스토리 스펙 확인</h1>
+    <span class="data-notice">* 캐릭터 스탯 및 장비 정보는 2023.12.21 이후 접속한 계정의 캐릭터만 확인이 가능합니다.</span>
+  </header>
+  <main>
+    <div class="inner">
+      <section class="search-area">
+        <form onsubmit="return false">
+          <label class="search-item">
+            <input type="text" placeholder="아이디를 입력해주세요.(대소문자 구분 필요)" id="mapleID">
+          </label>
+        </form>
+        <button type="button" id="sendIDbtn">
+          <span class="material-symbols-outlined">search</span>
+        </button>
+      </section>
+      <section class="data">
+        <div class="data-bg">
+          <span class="data-date">조회 기준일</span>
+          <div class="data-basic">
+            <p class="data-img"><img src="#" alt="캐릭터 이미지"></p>
+            <ul class="data-basic-list basic">
+              <!-- <li class="data-ID"></li>
+              <li class="data-level"></li>
+              <li class="data-guild"></li>
+              <li class="data-class"></li>
+              <li class="data-sever"></li> -->
+            </ul>
+            <ul class="data-basic-list etc">
+              <li class="data-popularity"></li>
+            </ul>
+          </div>
+          <p class="class-img"><img src="#" alt="클래스 이미지"></p>
+          <div class="data-tabmenu">
+            <button class="tab-btn" id="tab1">종합 능력치</button>
+            <button class="tab-btn" id="tab2">장비</button>
+            <button class="tab-btn" id="tab3">캐시 장비</button>
+            <div id="tab1" class="tab-content stat">
+              <h2>종합 능력치 및 어빌리티</h2>
+              <strong class="stat-power">전투력</strong>
+              <div class="char-stat">
+                <ul class="char-stat-page1">
+                  <!-- <li>최소 스탯공격력 : 10</li>
+                  <li>최대 스탯공격력 : 10</li>
+                  <li>데미지 : 10</li>
+                  <li>보스 몬스터 데미지 : 10</li>
+                  <li>일반 몬스터 데미지</li>
+                  <li>최종 데미지</li>
+                  <li>방어율 무시</li>
+                  <li>크리티컬 확률</li>
+                  <li>크리티컬 데미지</li>
+                  <li>공격력</li>
+                  <li>마력</li>
+                  <li>상태이상 내성</li>
+                  <li>소환수 지속시간 증가</li>
+                  <li>버프 지속시간</li>
+                  <li>스타포스</li>
+                  <li>아케인포스</li>
+                  <li>어센틱포스</li> -->
+                </ul>
+                <ul class="char-stat-page2">
+                  <!-- <li>STR</li>
+                  <li>DEX</li>
+                  <li>INT</li>
+                  <li>LUK</li>
+                  <li>HP</li>
+                  <li>MP</li>
+                  <li>재사용 대기시간 감소 (%)</li>
+                  <li>공격 속도</li>
+                  <li>스탠스</li>
+                  <li>방어력</li>
+                  <li>이동속도</li>
+                  <li>점프력</li>
+                  <li>속성 내성 무시</li>
+                  <li>상태이상 추가 데미지</li>
+                  <li>메소 획득량</li>
+                  <li>아이템 드롭률</li>
+                  <li>추가 경험치 획득</li> -->
+                </ul>
+                <div class="hiperstatAbility">
+                  <div class="hiper-stat-tab">
+                    <div class="hiper-stat-tab-menu">
+                      <button type="button" class="hiper-tab-button" id="hiper_tab1">Preset1</button>
+                      <button type="button" class="hiper-tab-button" id="hiper_tab2">Preset2</button>
+                      <button type="button" class="hiper-tab-button" id="hiper_tab3">Preset3</button>
+                    </div>
+                    <div id="hiper_tab1" class="hiper-tab-content">
+                      <h2>하이퍼 스탯(프리셋1)</h2>
+                      <div class="hiper-stat-preset1 hiper-stat-preset">
+                        <ul class="hiper-stat-preset1-page1 hiper-stat-preset-page1">
+                          <!-- <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li> -->
+                        </ul>
+                        <ul class="hiper-stat-preset1-page2 hiper-stat-preset-page2">
+                          <!-- <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li> -->
+                        </ul>
+                      </div>
+                      <em class="hiper-preset1-remain-point">남은 포인트</em>
+                    </div>
+                    <div id="hiper_tab2" class="hiper-tab-content hidden">
+                      <h2>하이퍼 스탯(프리셋2)</h2>
+                      <div class="hiper-stat-preset2 hiper-stat-preset">
+                        <ul class="hiper-stat-preset2-page1 hiper-stat-preset-page1">
+                          <!-- <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li> -->
+                        </ul>
+                        <ul class="hiper-stat-preset2-page2 hiper-stat-preset-page2">
+                          <!-- <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li> -->
+                        </ul>
+                      </div>
+                      <em class="hiper-preset2-remain-point">남은 포인트</em>
+                    </div>
+                    <div id="hiper_tab3" class="hiper-tab-content hidden">
+                      <h2>하이퍼 스탯(프리셋3)</h2>
+                      <div class="hiper-stat-preset3 hiper-stat-preset">
+                        <ul class="hiper-stat-preset3-page1 hiper-stat-preset-page1">
+                          <!-- <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li> -->
+                        </ul>
+                        <ul class="hiper-stat-preset3-page2 hiper-stat-preset-page2">
+                          <!-- <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li>
+                          <li></li> -->
+                        </ul>
+                      </div>
+                      <em class="hiper-preset3-remain-point">남은 포인트</em>
+                    </div>
+                  </div>
+                  <div class="ability">
+                    <h2>어빌리티</h2>
+                    <ul class="ability-list">
+                      <!-- <li></li>
+                      <li></li>
+                      <li></li> -->
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="tab2" class="tab-content item-equipment hidden">
+              <h2>장비</h2>
+              <div class="item-equipment-wrap">
+                <table class="item-equipment-table">
+                  <!-- <tr>
+                    <td><img src="" alt="반지1"></td>
+                    <td class="bg-black"></td>
+                    <td><img src="" alt="모자"></td>
+                    <td class="bg-black"></td>
+                    <td><img src="" alt="엠블렘"></td>
+                  </tr>
+                  <tr>
+                    <td><img src="" alt="반지2"></td>
+                    <td><img src="" alt="목걸이1"></td>
+                    <td><img src="" alt="얼굴장식"></td>
+                    <td class="bg-black"></td>
+                    <td><img src="" alt="뱃지"></td>
+                  </tr>
+                  <tr>
+                    <td><img src="" alt="반지3"></td>
+                    <td><img src="" alt="목걸이2"></td>
+                    <td><img src="" alt="눈 장식"></td>
+                    <td><img src="" alt="귀걸이"></td>
+                    <td><img src="" alt="칭호"></td>
+                  </tr>
+                  <tr>
+                    <td><img src="" alt="반지4"></td>
+                    <td><img src="" alt="무기"></td>
+                    <td><img src="" alt="상의"></td>
+                    <td><img src="" alt="어깨장식"></td>
+                    <td><img src="" alt="보조무기"></td>
+                  </tr>
+                  <tr>
+                    <td><img src="" alt="포켓장비"></td>
+                    <td><img src="" alt="벨트"></td>
+                    <td><img src="" alt="바지"></td>
+                    <td><img src="" alt="장갑"></td>
+                    <td><img src="" alt="망토"></td>
+                  </tr>
+                  <tr>
+                    <td><img src="" alt="신발"></td>
+                    <td><img src="" alt="안드로이드 외형"></td>
+                    <td><img src="" alt="안드로이드 하트"></td>
+                    <td class="bg-black"></td>
+                    <td class="bg-black"></td>
+                  </tr> -->
+                </table>
+                <div class="item-equipment-stat">
+                  <p class="item-equipment-stat-check">능력치 확인을 원하는 장비 아이템을 클릭해주세요.</p>
+                  <ul class="item-equipment-stat-base">
+                    <!-- <li>STR</li> -->
+                  </ul>
+                  <ul class="item-equipment-stat-potential"></ul>
+                </div>
+              </div>
+            </div>
+            <div id="tab3" class="tab-content cash-equipment hidden">
+              <h2>캐시 장비</h2>
+              <p>세 번째 탭의 내용입니다.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer></footer>
+
+  <script src="/2023-12-29-maplestory-data-site/index.js"></script>
+</body>
+
+
+</html>
