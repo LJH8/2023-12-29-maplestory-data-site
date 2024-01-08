@@ -18,7 +18,7 @@ sendIDbtn.addEventListener("click", (data) => {
 
 //정보 조회를 위한 캐릭터식별자 코드(ocid)조회
 function renderData() {
-  const dataDate = document.querySelector(".data-date")
+  const dataDate = document.querySelector(".data-date");
   const characterName = mapleID.value;
   const urlString = "https://open.api.nexon.com/maplestory/v1/id?character_name=" + characterName;
   fetch(urlString, {
@@ -28,26 +28,26 @@ function renderData() {
   })
     .then(response => {
       // 유효성 검사
-      if(response.status == 400) {
-        alert("닉네임이 유효하지 않습니다. 다시 입력해주세요.")
-        return false
+      if (response.status == 400) {
+        alert("닉네임이 유효하지 않습니다. 다시 입력해주세요.");
+        return false;
       } else {
         gameData.classList.remove("hidden");
-        return response.json()
+        return response.json();
       }
     })
     .then(data => {
-      const ocid = data.ocid
-      basicData(ocid)
-      popularity(ocid)
-      totalStatus(ocid)
-      hiperstatPreset(ocid)
-      ability(ocid)
-      eqip(ocid)
+      const ocid = data.ocid;
+      basicData(ocid);
+      popularity(ocid);
+      totalStatus(ocid);
+      hiperstatPreset(ocid);
+      ability(ocid);
+      eqip(ocid);
     })
     .catch(error => console.error(error));
-    dataDate.textContent = `* 조회 기준일 : ${baseDate()}`
-    document.querySelector(".data-bg").style.display = "block"
+  dataDate.textContent = `* 조회 기준일 : ${baseDate()}`;
+  document.querySelector(".data-bg").style.display = "block";
 }
 
 //기본 정보 조회
@@ -58,17 +58,17 @@ function basicData(ocid) {
       "x-nxopen-api-key": API_KEY
     }
   })
-  .then(response => response.json())
-  .then(data => {
-    if(data.character_level < 10) {
-      alert("10레벨 이상 캐릭터만 조회 가능합니다.");
-      return false;
-    }
-    const basicList = document.querySelector(".data-basic-list");
-    const dataIMG = document.querySelector(".data-img > img");
-    const classIMG = document.querySelector(".class-img > img")
-    dataIMG.src = `${data.character_image}`;
-    classIMG.src = `/2023-12-29-maplestory-data-site/img/${data.character_class}.png`
+    .then(response => response.json())
+    .then(data => {
+      if (data.character_level < 10) {
+        alert("10레벨 이상 캐릭터만 조회 가능합니다.");
+        return false;
+      }
+      const basicList = document.querySelector(".data-basic-list");
+      const dataIMG = document.querySelector(".data-img > img");
+      const classIMG = document.querySelector(".class-img > img");
+      dataIMG.src = `${data.character_image}`;
+      classIMG.src = `/2023-12-29-maplestory-data-site/img/${data.character_class}.png`;
       basicList.innerHTML = `
         <li class="data-ID">${data.character_name}</li>
         <li class="data-level">LV${data.character_level}</li>
@@ -76,101 +76,101 @@ function basicData(ocid) {
         <li class="data-class">직업 : ${data.character_class}</li>
         <li class="data-sever">서버 : ${data.world_name}</li>
         `;
-        if(data.character_guild_name === null) {
-          document.querySelector(".data-guild").style.display = "none"
-        }
-      })
-    .catch(error => console.error(error));
-  }
-
-  // 인기도 조회
-  function popularity(ocid) {
-    const urlString = `https://open.api.nexon.com/maplestory/v1/character/popularity?ocid=${ocid}&date=${baseDate()}`
-    fetch(urlString, {
-      headers:{
-        "x-nxopen-api-key": API_KEY
+      if (data.character_guild_name === null) {
+        document.querySelector(".data-guild").style.display = "none";
       }
+    })
+    .catch(error => console.error(error));
+}
+
+// 인기도 조회
+function popularity(ocid) {
+  const urlString = `https://open.api.nexon.com/maplestory/v1/character/popularity?ocid=${ocid}&date=${baseDate()}`;
+  fetch(urlString, {
+    headers: {
+      "x-nxopen-api-key": API_KEY
+    }
   })
-  .then(response => response.json())
-  .then(data => {
-    const popularity = document.querySelector(".data-popularity")
-    popularity.textContent = `인기도 : ${data.popularity}`
-  }
-  )
-  .catch(error => console.error(error))
+    .then(response => response.json())
+    .then(data => {
+      const popularity = document.querySelector(".data-popularity");
+      popularity.textContent = `인기도 : ${data.popularity}`;
+    }
+    )
+    .catch(error => console.error(error));
 }
 
 // 종합 능력치 조회
 function totalStatus(ocid) {
-  const urlString = `https://open.api.nexon.com/maplestory/v1/character/stat?ocid=${ocid}&date=${baseDate()}`
+  const urlString = `https://open.api.nexon.com/maplestory/v1/character/stat?ocid=${ocid}&date=${baseDate()}`;
   fetch(urlString, {
-    headers:{
+    headers: {
       "x-nxopen-api-key": API_KEY
     }
   })
-  .then (response => response.json())
-  .then (data => {
-    const statPower = document.querySelector(".stat-power")
-    let dataFinalStats = data['final_stat']
-    let filterPower = data['final_stat'][42]['stat_value'];
-    let powerFrontNum = filterPower.slice(0,filterPower.length-4);
-    let powerBackNum = filterPower.slice(filterPower.length-4,filterPower.length);
+    .then(response => response.json())
+    .then(data => {
+      const statPower = document.querySelector(".stat-power");
+      let dataFinalStats = data['final_stat'];
+      let filterPower = data['final_stat'][42]['stat_value'];
+      let powerFrontNum = filterPower.slice(0, filterPower.length - 4);
+      let powerBackNum = filterPower.slice(filterPower.length - 4, filterPower.length);
 
-    filterPower.length > 4 ? statPower.textContent = `전투력 : ${powerFrontNum}만 ${powerBackNum}` :statPower.textContent = `전투력 : ${powerBackNum}`
+      filterPower.length > 4 ? statPower.textContent = `전투력 : ${powerFrontNum}만 ${powerBackNum}` : statPower.textContent = `전투력 : ${powerBackNum}`;
 
-    //스테이터스 값 추출
-    let dataFinalStatsValue = Array()
-    for(let i = 0; i < dataFinalStats.length; i++) {
-      dataFinalStatsValue.push(dataFinalStats[i].stat_value)
-    }
-    //추출된 스테이터스 값 중 3자릿수 이상 값에 콤마 삽입
-    let dataFinalStatsFix = Array()
-    for(let i = 0; i < dataFinalStats.length; i++) {
-      dataFinalStatsFix.push(Math.floor(dataFinalStats[i].stat_value).toLocaleString())
-    }
-    statPage1Fun(dataFinalStatsValue,dataFinalStatsFix)
-    statPage2Fun(dataFinalStatsValue,dataFinalStatsFix)
-  })
+      //스테이터스 값 추출
+      let dataFinalStatsValue = Array();
+      for (let i = 0; i < dataFinalStats.length; i++) {
+        dataFinalStatsValue.push(dataFinalStats[i].stat_value);
+      }
+      //추출된 스테이터스 값 중 3자릿수 이상 값에 콤마 삽입
+      let dataFinalStatsFix = Array();
+      for (let i = 0; i < dataFinalStats.length; i++) {
+        dataFinalStatsFix.push(Math.floor(dataFinalStats[i].stat_value).toLocaleString());
+      }
+      statPage1Fun(dataFinalStatsValue, dataFinalStatsFix);
+      statPage2Fun(dataFinalStatsValue, dataFinalStatsFix);
+    });
 }
 
 // 조회 기준 날짜
 function baseDate() {
   let d = new Date();
-  d.setDate(d.getDate() -1 );// 어제날짜
-  d.setHours(d.getHours()-1);// 한 시간 전
-  let year    = d.getFullYear();
-  let month   = ('0' + (d.getMonth() +  1 )).slice(-2);
-  let day     = ('0' + d.getDate()).slice(-2);
+  d.setDate(d.getDate() - 1);// 어제날짜
+  d.setHours(d.getHours() - 1);// 한 시간 전
+  let year = d.getFullYear();
+  let month = ('0' + (d.getMonth() + 1)).slice(-2);
+  let day = ('0' + d.getDate()).slice(-2);
   dt = `${year}-${month}-${day}`;
   return dt;
 }
 
 // 종합능력치 및 어빌리티 탭메뉴 구현
-const tabBtn = document.querySelectorAll(".tab-btn")
+const tabBtn = document.querySelectorAll(".tab-btn");
 tabBtn.forEach((btn) => {
   btn.addEventListener("click", () => {
-    const tabContent = document.querySelectorAll(".tab-content")
+    const tabContent = document.querySelectorAll(".tab-content");
     tabContent.forEach(content => {
-      content.classList.add("hidden")
-      if(btn.id == content.id) {
-        content.classList.remove("hidden")
+      content.classList.add("hidden");
+      if (btn.id == content.id) {
+        content.classList.remove("hidden");
       }
-    })
-  })
-})
+    });
+  });
+});
 
 
 
 // 능력치 페이지1
-function statPage1Fun(data,fixData) {
-  const statPage1 = document.querySelector(".char-stat-page1")
+function statPage1Fun(data, fixData) {
+  const statPage1 = document.querySelector(".char-stat-page1");
   let filterMinPower = data[0];
   let filterMaxPower = data[1];
-  let MinpowerFrontNum = filterMinPower.slice(0,filterMinPower.length-4);
-  let MaxpowerFrontNum = filterMaxPower.slice(0,filterMaxPower.length-4);
-  let MinpowerBackNum = filterMinPower.slice(filterMinPower.length-4,filterMinPower.length);
-  let MaxpowerBackNum = filterMaxPower.slice(filterMaxPower.length-4,filterMaxPower.length);
-  
+  let MinpowerFrontNum = filterMinPower.slice(0, filterMinPower.length - 4);
+  let MaxpowerFrontNum = filterMaxPower.slice(0, filterMaxPower.length - 4);
+  let MinpowerBackNum = filterMinPower.slice(filterMinPower.length - 4, filterMinPower.length);
+  let MaxpowerBackNum = filterMaxPower.slice(filterMaxPower.length - 4, filterMaxPower.length);
+
   statPage1.innerHTML = `
   <li>최소 스탯공격력 : ${MinpowerFrontNum}만 ${MinpowerBackNum}</li>
   <li>최대 스탯공격력 : ${MaxpowerFrontNum}만 ${MaxpowerBackNum}</li>
@@ -189,13 +189,13 @@ function statPage1Fun(data,fixData) {
   <li>스타포스 : ${data[13]}</li>
   <li>아케인포스 : ${fixData[14]}</li>
   <li>어센틱포스 : ${data[15]}</li>
-  `
+  `;
 }
 
 // 능력치 페이지2
-function statPage2Fun(data,fixData) {
-  const statPage2 = document.querySelector(".char-stat-page2")
-  
+function statPage2Fun(data, fixData) {
+  const statPage2 = document.querySelector(".char-stat-page2");
+
   statPage2.innerHTML = `
   <li>STR : ${fixData[16]}</li>
   <li>DEX : ${fixData[17]}</li>
@@ -214,49 +214,49 @@ function statPage2Fun(data,fixData) {
   <li>메소 획득량 : ${data[29]}%</li>
   <li>아이템 드롭률 : ${data[28]}%</li>
   <li>추가 경험치 획득 : ${data[39]}%</li>
-  `
+  `;
 }
 
 // 하이퍼스텟 탭메뉴 구현
-const hiperTabBtn = document.querySelectorAll(".hiper-tab-button")
+const hiperTabBtn = document.querySelectorAll(".hiper-tab-button");
 hiperTabBtn.forEach((btn) => {
   btn.addEventListener("click", () => {
-    const hiperTabContent = document.querySelectorAll(".hiper-tab-content")
+    const hiperTabContent = document.querySelectorAll(".hiper-tab-content");
     hiperTabContent.forEach(content => {
-      content.classList.add("hidden")
-      if(btn.id == content.id) {
-        content.classList.remove("hidden")
+      content.classList.add("hidden");
+      if (btn.id == content.id) {
+        content.classList.remove("hidden");
       }
-    })
-  })
-})
+    });
+  });
+});
 
 // 하이퍼스텟 조회
 function hiperstatPreset(ocid) {
   const urlString = `https://open.api.nexon.com/maplestory/v1/character/hyper-stat?ocid=${ocid}&date=${baseDate()}`;
   fetch(urlString, {
-    headers:{
+    headers: {
       "x-nxopen-api-key": API_KEY
     }
   })
-  .then(respone => respone.json())
-  .then(data => {
-    // for(let i = 1; i<4; i++) {
-    //   console.log(data)
-    // }
-    preset1(data.hyper_stat_preset_1,data.hyper_stat_preset_1_remain_point)
-    preset2(data.hyper_stat_preset_2,data.hyper_stat_preset_2_remain_point)
-    preset3(data.hyper_stat_preset_3,data.hyper_stat_preset_3_remain_point)
-  })
+    .then(respone => respone.json())
+    .then(data => {
+      // for(let i = 1; i<4; i++) {
+      //   console.log(data)
+      // }
+      preset1(data.hyper_stat_preset_1, data.hyper_stat_preset_1_remain_point);
+      preset2(data.hyper_stat_preset_2, data.hyper_stat_preset_2_remain_point);
+      preset3(data.hyper_stat_preset_3, data.hyper_stat_preset_3_remain_point);
+    });
 }
 
 // 하이퍼스텟 프리셋1
-function preset1(hiperData,remainPoint) {
+function preset1(hiperData, remainPoint) {
   let hiperStat1 = document.querySelector(".hiper-stat-preset1-page1");
   let hiperStat2 = document.querySelector(".hiper-stat-preset1-page2");
   let hiperRemainPoint = document.querySelector(".hiper-preset1-remain-point");
 
-  hiperRemainPoint.textContent = `남은 포인트 : ${remainPoint}`
+  hiperRemainPoint.textContent = `남은 포인트 : ${remainPoint}`;
   hiperStat1.innerHTML = `
     <li>STR : Lv. ${hiperData[0].stat_level}</li>
     <li>DEX : Lv. ${hiperData[1].stat_level}</li>
@@ -266,7 +266,7 @@ function preset1(hiperData,remainPoint) {
     <li>MP : Lv. ${hiperData[5].stat_level}</li>
     <li>DE/TH/PP : Lv. ${hiperData[6].stat_level}</li>
     <li>크리티컬 확률 : Lv. ${hiperData[7].stat_level}</li>
-  `
+  `;
   hiperStat2.innerHTML = `
     <li>크리티컬 데미지 : Lv. ${hiperData[8].stat_level}</li>
     <li>방어율 무시 : Lv. ${hiperData[9].stat_level}</li>
@@ -277,16 +277,16 @@ function preset1(hiperData,remainPoint) {
     <li>획득 경험치 : Lv. ${hiperData[14].stat_level}</li>
     <li>아케인포스 : Lv. ${hiperData[15].stat_level}</li>
     <li>일반몬스터 데미지 증가 : Lv. ${hiperData[16].stat_level}</li>
-  `
+  `;
 }
 
 // 하이퍼스텟 프리셋2
-function preset2(hiperData,remainPoint) {
+function preset2(hiperData, remainPoint) {
   let hiperStat1 = document.querySelector(".hiper-stat-preset2-page1");
   let hiperStat2 = document.querySelector(".hiper-stat-preset2-page2");
   let hiperRemainPoint = document.querySelector(".hiper-preset2-remain-point");
 
-  hiperRemainPoint.textContent = `남은 포인트 : ${remainPoint}`
+  hiperRemainPoint.textContent = `남은 포인트 : ${remainPoint}`;
   hiperStat1.innerHTML = `
     <li>STR : Lv. ${hiperData[0].stat_level}</li>
     <li>DEX : Lv. ${hiperData[1].stat_level}</li>
@@ -296,7 +296,7 @@ function preset2(hiperData,remainPoint) {
     <li>MP : Lv. ${hiperData[5].stat_level}</li>
     <li>DE/TH/PP : Lv. ${hiperData[6].stat_level}</li>
     <li>크리티컬 확률 : Lv. ${hiperData[7].stat_level}</li>
-  `
+  `;
   hiperStat2.innerHTML = `
     <li>크리티컬 데미지 : Lv. ${hiperData[8].stat_level}</li>
     <li>방어율 무시 : Lv. ${hiperData[9].stat_level}</li>
@@ -307,16 +307,16 @@ function preset2(hiperData,remainPoint) {
     <li>획득 경험치 : Lv. ${hiperData[14].stat_level}</li>
     <li>아케인포스 : Lv. ${hiperData[15].stat_level}</li>
     <li>일반몬스터 데미지 증가 : Lv. ${hiperData[16].stat_level}</li>
-  `
+  `;
 }
 
 // 하이퍼스텟 프리셋3
-function preset3(hiperData,remainPoint) {
+function preset3(hiperData, remainPoint) {
   let hiperStat1 = document.querySelector(".hiper-stat-preset3-page1");
   let hiperStat2 = document.querySelector(".hiper-stat-preset3-page2");
   let hiperRemainPoint = document.querySelector(".hiper-preset3-remain-point");
 
-  hiperRemainPoint.textContent = `남은 포인트 : ${remainPoint}`
+  hiperRemainPoint.textContent = `남은 포인트 : ${remainPoint}`;
   hiperStat1.innerHTML = `
     <li>STR : Lv. ${hiperData[0].stat_level}</li>
     <li>DEX : Lv. ${hiperData[1].stat_level}</li>
@@ -326,7 +326,7 @@ function preset3(hiperData,remainPoint) {
     <li>MP : Lv. ${hiperData[5].stat_level}</li>
     <li>DE/TH/PP : Lv. ${hiperData[6].stat_level}</li>
     <li>크리티컬 확률 : Lv. ${hiperData[7].stat_level}</li>
-  `
+  `;
   hiperStat2.innerHTML = `
     <li>크리티컬 데미지 : Lv. ${hiperData[8].stat_level}</li>
     <li>방어율 무시 : Lv. ${hiperData[9].stat_level}</li>
@@ -337,42 +337,42 @@ function preset3(hiperData,remainPoint) {
     <li>획득 경험치 : Lv. ${hiperData[14].stat_level}</li>
     <li>아케인포스 : Lv. ${hiperData[15].stat_level}</li>
     <li>일반몬스터 데미지 증가 : Lv. ${hiperData[16].stat_level}</li>
-  `
+  `;
 }
 
 // 어빌리티
-function ability(ocid){
+function ability(ocid) {
   const urlString = `https://open.api.nexon.com/maplestory/v1/character/ability?ocid=${ocid}&date=${baseDate()}`;
   fetch(urlString, {
-    headers:{
+    headers: {
       "x-nxopen-api-key": API_KEY
     }
   })
-  .then(respone => respone.json())
-  .then(data => {
-    const abilityStat = document.querySelector(".ability-list");
-    let detailData = data.ability_info;
-    abilityStat.innerHTML = `
+    .then(respone => respone.json())
+    .then(data => {
+      const abilityStat = document.querySelector(".ability-list");
+      let detailData = data.ability_info;
+      abilityStat.innerHTML = `
       <li>${detailData[0].ability_no}. <strong>[${detailData[0].ability_grade}]</strong>${detailData[0].ability_value}</li>
       <li>${detailData[1].ability_no}. <strong>[${detailData[1].ability_grade}]</strong>${detailData[1].ability_value}</li>
       <li>${detailData[2].ability_no}. <strong>[${detailData[2].ability_grade}]</strong>${detailData[2].ability_value}</li>
-    `
-  })
+    `;
+    });
 }
 
 // 장비 조회
 function eqip(ocid) {
   const urlString = `https://open.api.nexon.com/maplestory/v1/character/item-equipment?ocid=${ocid}&date=${baseDate()}`;
   fetch(urlString, {
-    headers:{
+    headers: {
       "x-nxopen-api-key": API_KEY
     }
   })
-  .then(respone => respone.json())
-  .then(data => {
-    let detailData = data.item_equipment;
-    const equipTable = document.querySelector(".item-equipment-table");
-    equipTable.innerHTML = `
+    .then(respone => respone.json())
+    .then(data => {
+      let detailData = data.item_equipment;
+      const equipTable = document.querySelector(".item-equipment-table");
+      equipTable.innerHTML = `
       <tr>
         <td class="useItem" id="6"><img src="${detailData[6].item_icon}" alt="반지1"></td>
         <td></td>
@@ -415,24 +415,24 @@ function eqip(ocid) {
         <td></td>
         <td class="useItem" id="23"><img src="${detailData[23].item_icon}" alt="안드로이드 하트"></td>
       </tr>
-    `
-    // 장비 정보 확인창
-    const equipItem = document.querySelectorAll(".useItem");
+    `;
+      // 장비 정보 확인창
+      const equipItem = document.querySelectorAll(".useItem");
 
-    equipItem.forEach((item) => {
-      item.addEventListener("click",() => {
-        equipItemStatBase(detailData,item)
-        document.querySelector(".item-equipment-stat-check").style.display = "none";
-        eqipStatBase.style.display = "block"
-      })
-    })
-  })
+      equipItem.forEach((item) => {
+        item.addEventListener("click", () => {
+          equipItemStatBase(detailData, item);
+          document.querySelector(".item-equipment-stat-check").style.display = "none";
+          eqipStatBase.style.display = "block";
+        });
+      });
+    });
 }
 
 // 장비 상세 정보
-function equipItemStatBase(data,item) {
-  console.log(data[item.id])
-  const itemEquipmentStat = document.querySelector(".item-equipment-stat-base")
+function equipItemStatBase(data, item) {
+  console.log(data[item.id]);
+  const itemEquipmentStat = document.querySelector(".item-equipment-stat-base");
   itemEquipmentStat.innerHTML = `
     <li class="eq-name">
       <span>${data[item.id].item_name}</span>
@@ -546,19 +546,19 @@ function equipItemStatBase(data,item) {
       <div class="potential-wrap">
         <strong>잠재 옵션[${data[item.id].potential_option_grade}]</strong>
         <ul>
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
-        </ul>
+          <li>${data[item.id].potential_option_1 == null ? "없음" : data[item.id].potential_option_1}</li >
+          <li>${data[item.id].potential_option_2 == null ? "없음" : data[item.id].potential_option_2}</li>
+          <li>${data[item.id].potential_option_3 == null ? "없음" : data[item.id].potential_option_3}</li>
+        </ul >
         <strong>에디셔널 잠재 옵션[${data[item.id].additional_potential_option_grade}]</strong>
         <ul>
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
+        <li>${data[item.id].additional_potential_option_1 == null ? "없음" : data[item.id].additional_potential_option_1}</li>
+        <li>${data[item.id].additional_potential_option_2 == null ? "없음" : data[item.id].additional_potential_option_2}</li>
+        <li>${data[item.id].additional_potential_option_3 == null ? "없음" : data[item.id].additional_potential_option_3}</li>
         </ul>
-      </div>
-    </li>
-      `
+      </div >
+    </li >
+  `
   // 값이 0인 능력치는 표시X
   const equipValues = document.querySelectorAll(".eq-value")
   for (const equipValue of equipValues) {
@@ -575,10 +575,10 @@ function equipItemStatBase(data,item) {
     else {
       arrowInPotentail.style.transform ="rotate(180deg)"
     }
-    if(eqipStatBase.style.height == "500px"){
+    if(eqipStatBase.style.height == "550px"){
       eqipStatBase.style.height = "380px"
     } else {
-      eqipStatBase.style.height = "500px"
+      eqipStatBase.style.height = "550px"
     }
   })
   // 잠재능력치가 없다면 표시 X
@@ -604,4 +604,4 @@ function equipItemStatBase(data,item) {
 // console.log(answer)
 
 
-// c4fa4f302b50ef30210de4cff41172d1
+// c4fa4f302b50ef30210de4cff41172d1;;

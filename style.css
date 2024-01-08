@@ -344,20 +344,27 @@ h1 {
   width: 100%;
   height: 50px;
 }
-.open-potential p {
+.item-equipment-stat .item-equipment-stat-base .open-potential p {
   height: 50px;
   text-align: center;
   line-height: 50px;
   background-color: #80cbfa;
   cursor: pointer;
 }
-.open-potential .potential-wrap {
-  padding: 10px;
+.item-equipment-stat .item-equipment-stat-base .open-potential .potential-wrap {
+  padding: 20px;
 }
-.open-potential ul {
+.item-equipment-stat .item-equipment-stat-base .open-potential .potential-wrap strong {
+  display: block;
+  margin-bottom: 10px;
+}
+.item-equipment-stat .item-equipment-stat-base .open-potential ul {
   display: flex;
+  margin-bottom: 10px;
 }
-.open-potential ul li {}
+.item-equipment-stat .item-equipment-stat-base .open-potential ul li {
+  padding: 10px 20px;
+}
 
 
 
