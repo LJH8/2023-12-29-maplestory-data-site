@@ -13,7 +13,7 @@
     margin: 0 auto;
 }
 .hidden {
-    display: none;
+    display: none !important;
 }
 .active {
     display: block;

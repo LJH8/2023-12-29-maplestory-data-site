@@ -44,7 +44,7 @@ function renderData() {
       hiperstatPreset(ocid);
       ability(ocid);
       eqip(ocid);
-      ranking(ocid)
+      
     })
     .catch(error => console.error(error));
   dataDate.textContent = `* 조회 기준일 : ${baseDate()}`;
@@ -80,6 +80,8 @@ function basicData(ocid) {
       if (data.character_guild_name === null) {
         document.querySelector(".data-guild").style.display = "none";
       }
+      let decoderankingWorldValue = encodeURIComponent(data.world_name);
+      ranking(ocid,decoderankingWorldValue)
     })
     .catch(error => console.error(error));
 }
@@ -591,11 +593,10 @@ function equipItemStatBase(data, item) {
 }
 
 // 랭킹
-function ranking(ocid) {
+function ranking(ocid,decoderankingWorldValue) {
   document.querySelector(".ranking-check").addEventListener("click",() => {
-    const rankingWorld =  document.querySelector("#world-list");
-    const rankingClass =  document.querySelector("#calss-list");
-    let decoderankingWorldValue = encodeURIComponent(rankingWorld.options[rankingWorld.selectedIndex].value);
+    const rankingClass =  document.querySelector("#class-list");
+    
     let decoderankingClassValue = encodeURIComponent(rankingClass.options[rankingClass.selectedIndex].value);
     const urlString = `https://open.api.nexon.com/maplestory/v1/ranking/overall?date=${baseDate()}&world_name=${decoderankingWorldValue}&world_type=0&class=${decoderankingClassValue}&ocid=${ocid}&page=1`
     fetch(urlString, {
@@ -605,14 +606,18 @@ function ranking(ocid) {
          })
            .then(response => response.json())
            .then(data => {
-            console.log(data.ranking[0].ranking)
+            console.log(data)
              const userRanking = document.querySelector(".user-ranking")
             userRanking.textContent = `${data.ranking[0].ranking}등`
            }
             )
-           .catch(error => 
-            alert("캐릭터의 월드 혹은 캐릭터의 직업이 계정과 일치 하지않습니다. 다시 입력해주세요")
-            )
+           .catch(error => {
+             console.log(error);
+             alert("캐릭터의 직업이 계정과 일치 하지않습니다. 다시 입력해주세요")
+            }
+             )
+
+           
   })
 
       
