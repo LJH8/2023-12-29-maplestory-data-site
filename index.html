@@ -18,7 +18,7 @@
 <body>
   <header>
     <h1>메이플스토리 스펙 확인</h1>
-    <span class="data-notice">* 캐릭터 스탯 및 장비 정보는 2023.12.21 이후 접속한 계정의 캐릭터만 확인이 가능합니다.</span>
+    <span class="data-notice">* 정보 조회는 2023.12.21 이후 접속한 계정의 캐릭터만 확인이 가능합니다.</span>
   </header>
   <main>
     <div class="inner">
@@ -52,7 +52,7 @@
           <div class="data-tabmenu">
             <button class="tab-btn" id="tab1">종합 능력치</button>
             <button class="tab-btn" id="tab2">장비</button>
-            <button class="tab-btn" id="tab3">캐시 장비</button>
+            <button class="tab-btn" id="tab3">랭킹</button>
             <div id="tab1" class="tab-content stat">
               <h2>종합 능력치 및 어빌리티</h2>
               <strong class="stat-power">전투력</strong>
@@ -250,9 +250,133 @@
                 </div>
               </div>
             </div>
-            <div id="tab3" class="tab-content cash-equipment hidden">
-              <h2>캐시 장비</h2>
-              <p>세 번째 탭의 내용입니다.</p>
+            <div id="tab3" class="tab-content ranking hidden">
+              <div class="ranking-data">
+                <p>캐릭터의 월드와 직업을 선택해주세요</p>
+                <form>
+                  <select title="world" name="world-list" id="world-list" class="world-list">
+                    <option value="null">월드</option>
+                    <option value="스카니아">스카니아</option>
+                    <option value="베라">베라</option>
+                    <option value="루나">루나</option>
+                    <option value="제니스">제니스</option>
+                    <option value="크로아">크로아</option>
+                    <option value="유니온">유니온</option>
+                    <option value="엘리시움">엘리시움</option>
+                    <option value="이노시스">이노시스</option>
+                    <option value="레드">레드</option>
+                    <option value="오로라">오로라</option>
+                    <option value="아케인">아케인</option>
+                    <option value="노바">노바</option>
+                    <option value="리부트">리부트</option>
+                    <option value="리부트2">리부트2</option>
+                    <option value="버닝">버닝</option>
+                    <option value="버닝2">버닝2</option>
+                    <option value="버닝3">버닝3</option>
+                  </select>
+                  <select title="calss-list" name="calss-list" id="calss-list" class="calss-list">
+                    <option value="null">직업</option>
+                    <option value="초보자-전체 전직">초보자-전체전직</option>
+                    <option value="전사-검사">전사-검사</option>
+                    <option value="전사-파이터">전사-파이터</option>
+                    <option value="전사-페이지">전사-페이지</option>
+                    <option value="전사-스피어맨">전사-스피어맨</option>
+                    <option value="전사-크루세이더">전사-크루세이더</option>
+                    <option value="전사-나이트">전사-나이트</option>
+                    <option value="전사-버서커">전사-버서커</option>
+                    <option value="전사-히어로">전사-히어로</option>
+                    <option value="전사-팔라딘">전사-팔라딘</option>
+                    <option value="전사-다크나이트">전사-다크나이트</option>
+                    <option value="마법사-전체 전직">마법사-전체전직</option>
+                    <option value="마법사-매지션">마법사-매지션</option>
+                    <option value="마법사-위자드(불,독)">마법사-위자드(불,독)</option>
+                    <option value="마법사-위자드(썬,콜)">마법사-위자드(썬,콜)</option>
+                    <option value="마법사-클레릭">마법사-클레릭</option>
+                    <option value="마법사-메이지(불,독)">마법사-메이지(불,독)</option>
+                    <option value="마법사-메이지(썬,콜)">마법사-메이지(썬,콜)</option>
+                    <option value="마법사-아크메이지(불,독)">마법사-아크메이지(불,독)</option>
+                    <option value="마법사-아크메이지(썬,콜)">마법사-아크메이지(썬,콜)</option>
+                    <option value="마법사-비숍">마법사-비숍</option>
+                    <option value="궁수-전체 전직">궁수-전체전직</option>
+                    <option value="궁수-아처">궁수-아처</option>
+                    <option value="궁수-헌터">궁수-헌터</option>
+                    <option value="궁수-사수">궁수-사수</option>
+                    <option value="궁수-레인저">궁수-레인저</option>
+                    <option value="궁수-저격수">궁수-저격수</option>
+                    <option value="궁수-보우마스터">궁수-보우마스터</option>
+                    <option value="궁수-신궁">궁수-신궁</option>
+                    <option value="궁수-아처(패스파인더)">궁수-아처(패스파인더)</option>
+                    <option value="궁수-에인션트아처">궁수-에인션트아처</option>
+                    <option value="궁수-체이서">궁수-체이서</option>
+                    <option value="궁수-패스파인더">궁수-패스파인더</option>
+                    <option value="도적-전체 전직">도적-전체전직</option>
+                    <option value="도적-로그">도적-로그</option>
+                    <option value="도적-어쌔신">도적-어쌔신</option>
+                    <option value="도적-시프">도적-시프</option>
+                    <option value="도적-허밋">도적-허밋</option>
+                    <option value="도적-시프마스터">도적-시프마스터</option>
+                    <option value="도적-나이트로드">도적-나이트로드</option>
+                    <option value="도적-섀도어">도적-섀도어</option>
+                    <option value="도적-세미듀어러">도적-세미듀어러</option>
+                    <option value="도적-듀어러">도적-듀어러</option>
+                    <option value="도적-듀얼마스터">도적-듀얼마스터</option>
+                    <option value="도적-슬래셔">도적-슬래셔</option>
+                    <option value="도적-듀얼블레이더">도적-듀얼블레이더</option>
+                    <option value="해적-전체 전직">해적-전체전직</option>
+                    <option value="해적-해적">해적-해적</option>
+                    <option value="해적-인파이터">해적-인파이터</option>
+                    <option value="해적-건슬링거">해적-건슬링거</option>
+                    <option value="해적-캐논슈터">해적-캐논슈터</option>
+                    <option value="해적-버커니어">해적-버커니어</option>
+                    <option value="해적-발키리">해적-발키리</option>
+                    <option value="해적-캐논블래스터">해적-캐논블래스터</option>
+                    <option value="해적-바이퍼">해적-바이퍼</option>
+                    <option value="해적-캡틴">해적-캡틴</option>
+                    <option value="해적-캐논마스터">해적-캐논마스터</option>
+                    <option value="기사단-전체 전직">기사단-전체전직</option>
+                    <option value="기사단-노블레스">기사단-노블레스</option>
+                    <option value="기사단-소울마스터">기사단-소울마스터</option>
+                    <option value="기사단-플레임위자드">기사단-플레임위자드</option>
+                    <option value="기사단-윈드브레이커">기사단-윈드브레이커</option>
+                    <option value="기사단-나이트워커">기사단-나이트워커</option>
+                    <option value="기사단-스트라이커">기사단-스트라이커</option>
+                    <option value="기사단-미하일">기사단-미하일</option>
+                    <option value="아란-전체 전직">아란-전체전직</option>
+                    <option value="에반-전체 전직">에반-전체전직</option>
+                    <option value="레지스탕스-전체 전직">레지스탕스-전체전직</option>
+                    <option value="레지스탕스-시티즌">레지스탕스-시티즌</option>
+                    <option value="레지스탕스-배틀메이지">레지스탕스-배틀메이지</option>
+                    <option value="레지스탕스-와일드헌터">레지스탕스-와일드헌터</option>
+                    <option value="레지스탕스-메카닉">레지스탕스-메카닉</option>
+                    <option value="레지스탕스-데몬슬레이어">레지스탕스-데몬슬레이어</option>
+                    <option value="레지스탕스-데몬어벤져">레지스탕스-데몬어벤져</option>
+                    <option value="레지스탕스-제논">레지스탕스-제논</option>
+                    <option value="레지스탕스-블래스터">레지스탕스-블래스터</option>
+                    <option value="메르세데스-전체전직">메르세데스-전체전직</option>
+                    <option value="팬텀-전체 전직">팬텀-전체전직</option>
+                    <option value="카이저-전체 전직">카이저-전체전직</option>
+                    <option value="엔젤릭버스터-전체 전직">엔젤릭버스터-전체전직</option>
+                    <option value="초월자-전체 전직">초월자-전체전직</option>
+                    <option value="초월자-제로">초월자-제로</option>
+                    <option value="은월-전체 전직">은월-전체전직</option>
+                    <option value="프렌즈 월드-전체 전직">프렌즈 월드-전체전직</option>
+                    <option value="프렌즈 월드-키네시스">프렌즈 월드-키네시스</option>
+                    <option value="카데나-전체 전직">카데나-전체전직</option>
+                    <option value="일리움-전체 전직">일리움-전체전직</option>
+                    <option value="아크-전체 전직">아크-전체전직</option>
+                    <option value="호영-전체 전직">호영-전체전직</option>
+                    <option value="아델-전체 전직">아델-전체전직</option>
+                    <option value="카인-전체 전직">카인-전체전직</option>
+                    <option value="라라-전체 전직">라라-전체전직</option>
+                    <option value="칼리-전체 전직">칼리-전체전직</option>
+                  </select>
+                </form>
+                <button type="button" class="ranking-check">확인하기</button>
+              </div>
+              <div class="show-ranking">
+                <span>당신의 랭킹은...</span>
+                <strong class="user-ranking"></strong>
+              </div>
             </div>
           </div>
         </div>

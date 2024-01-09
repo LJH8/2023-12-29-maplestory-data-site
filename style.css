@@ -364,12 +364,67 @@ h1 {
 }
 .item-equipment-stat .item-equipment-stat-base .open-potential ul li {
   padding: 10px 20px;
+  font-size: 1rem;
 }
-
-
-
 /* 장비 스탯 - E*/
 /* 장비 - E */
+/* 랭킹 - S */
+.ranking {
+  display: flex;
+  width: 100%;
+  height: 500px;
+  padding: 100px 0;
+}
+.ranking .ranking-data {
+  width: 50%;
+  text-align: center;
+}
+.ranking .ranking-data > h2 {}
+.ranking .ranking-data > p {
+  color: #f2f2f2;
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+}
+.ranking .ranking-data > form {
+  margin-bottom: 50px;
+}
+.ranking select {
+  width: 200px;
+  height: 30px;
+  border-radius: 5px;
+}
+.ranking .ranking-data > button {
+  width: 250px;
+  height: 80px;
+  color: #f2f2f2;
+  font-size: 3rem;
+  border-radius: 10px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.ranking .show-ranking {
+  width: 50%;
+}
+.ranking .show-ranking span {
+  display: block;
+  color: #fff;
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 0 auto 60px;
+}
+.ranking .show-ranking strong {
+  display: block;
+  text-align: center;
+  color: #ddfe01;
+  font-size: 5rem;
+  margin: 0 auto;
+}
+
+.ranking .ranking-data > button:hover {
+  color: #f00;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+/* 랭킹 - E */
 /* 탭메뉴 구성 - E */
 
 /* 메인 - E */

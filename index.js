@@ -44,6 +44,7 @@ function renderData() {
       hiperstatPreset(ocid);
       ability(ocid);
       eqip(ocid);
+      ranking(ocid)
     })
     .catch(error => console.error(error));
   dataDate.textContent = `* 조회 기준일 : ${baseDate()}`;
@@ -431,7 +432,7 @@ function eqip(ocid) {
 
 // 장비 상세 정보
 function equipItemStatBase(data, item) {
-  console.log(data[item.id]);
+  console.log(data);
   const itemEquipmentStat = document.querySelector(".item-equipment-stat-base");
   itemEquipmentStat.innerHTML = `
     <li class="eq-name">
@@ -546,15 +547,15 @@ function equipItemStatBase(data, item) {
       <div class="potential-wrap">
         <strong>잠재 옵션[${data[item.id].potential_option_grade}]</strong>
         <ul>
-          <li>${data[item.id].potential_option_1 == null ? "없음" : data[item.id].potential_option_1}</li >
-          <li>${data[item.id].potential_option_2 == null ? "없음" : data[item.id].potential_option_2}</li>
-          <li>${data[item.id].potential_option_3 == null ? "없음" : data[item.id].potential_option_3}</li>
+          <li class="potentialStat">${data[item.id].potential_option_1 == null ? "없음" : data[item.id].potential_option_1}</li >
+          <li class="potentialStat">${data[item.id].potential_option_2 == null ? "없음" : data[item.id].potential_option_2}</li>
+          <li class="potentialStat">${data[item.id].potential_option_3 == null ? "없음" : data[item.id].potential_option_3}</li>
         </ul >
         <strong>에디셔널 잠재 옵션[${data[item.id].additional_potential_option_grade}]</strong>
         <ul>
-        <li>${data[item.id].additional_potential_option_1 == null ? "없음" : data[item.id].additional_potential_option_1}</li>
-        <li>${data[item.id].additional_potential_option_2 == null ? "없음" : data[item.id].additional_potential_option_2}</li>
-        <li>${data[item.id].additional_potential_option_3 == null ? "없음" : data[item.id].additional_potential_option_3}</li>
+          <li class="potentialStat">${data[item.id].additional_potential_option_1 == null ? "없음" : data[item.id].additional_potential_option_1}</li>
+          <li class="potentialStat">${data[item.id].additional_potential_option_2 == null ? "없음" : data[item.id].additional_potential_option_2}</li>
+          <li class="potentialStat">${data[item.id].additional_potential_option_3 == null ? "없음" : data[item.id].additional_potential_option_3}</li>
         </ul>
       </div >
     </li >
@@ -581,9 +582,45 @@ function equipItemStatBase(data, item) {
       eqipStatBase.style.height = "550px"
     }
   })
-  // 잠재능력치가 없다면 표시 X
-
+  // 글의길이가 15자 이상이면 폰트사이즈 축소
+  document.querySelectorAll(".potentialStat").forEach((PS) => {
+    if(PS.textContent.length > 15) {
+      PS.style.fontSize="0.9rem"
+    }
+  }) 
 }
+
+// 랭킹
+function ranking(ocid) {
+  document.querySelector(".ranking-check").addEventListener("click",() => {
+    const rankingWorld =  document.querySelector("#world-list");
+    const rankingClass =  document.querySelector("#calss-list");
+    let decoderankingWorldValue = encodeURIComponent(rankingWorld.options[rankingWorld.selectedIndex].value);
+    let decoderankingClassValue = encodeURIComponent(rankingClass.options[rankingClass.selectedIndex].value);
+    const urlString = `https://open.api.nexon.com/maplestory/v1/ranking/overall?date=${baseDate()}&world_name=${decoderankingWorldValue}&world_type=0&class=${decoderankingClassValue}&ocid=${ocid}&page=1`
+    fetch(urlString, {
+           headers:{
+               "x-nxopen-api-key": API_KEY
+             }
+         })
+           .then(response => response.json())
+           .then(data => {
+            console.log(data.ranking[0].ranking)
+             const userRanking = document.querySelector(".user-ranking")
+            userRanking.textContent = `${data.ranking[0].ranking}등`
+           }
+            )
+           .catch(error => 
+            alert("캐릭터의 월드 혹은 캐릭터의 직업이 계정과 일치 하지않습니다. 다시 입력해주세요")
+            )
+  })
+
+      
+}
+
+// 기존데이터
+// https://open.api.nexon.com/maplestory/v1/ranking/overall?date=2024-01-08&world_name=%EC%8A%A4%EC%B9%B4%EB%8B%88%EC%95%84&world_type=0&class=%EC%A0%84%EC%82%AC-%EB%B2%84%EC%84%9C%EC%BB%A4&ocid=c4fa4f302b50ef30210de4cff41172d1&page=1
+
 
 
 
